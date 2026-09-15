@@ -370,72 +370,188 @@ class="rolls-image"
 
 
 
-<section class="info">
+/* PREMIUM INFORMATION WALLPAPER */
 
-<h2 class="section-title">
-ROLLS-ROYCE
-</h2>
+.info{
+    min-height:100vh;
 
-<p class="description">
+    position:relative;
 
-Discover the world of Rolls-Royce through
-a futuristic digital experience.
+    display:flex;
+    align-items:center;
 
-Explore luxury design, technology,
-performance, colors and engineering.
+    padding:120px 7%;
 
-</p>
+    overflow:hidden;
 
+    background:
 
-<div class="specs">
+    radial-gradient(
+        circle at 15% 25%,
+        rgba(0,210,255,.45),
+        transparent 30%
+    ),
 
+    radial-gradient(
+        circle at 85% 75%,
+        rgba(255,0,210,.40),
+        transparent 30%
+    ),
 
-<div class="card">
-<span>MODEL</span>
-<strong>SPECTRE</strong>
-</div>
-
-
-<div class="card">
-<span>POWER</span>
-<strong>584 HP</strong>
-</div>
-
-
-<div class="card">
-<span>DRIVE</span>
-<strong>AWD</strong>
-</div>
-
-
-<div class="card">
-<span>TYPE</span>
-<strong>ELECTRIC</strong>
-</div>
+    linear-gradient(
+        135deg,
+        #05050b,
+        #151020,
+        #05050b
+    );
+}
 
 
-<div class="card">
-<span>DESIGN</span>
-<strong>LUXURY</strong>
-</div>
+/* NEON LIGHT */
+
+.info::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(0,210,255,.18),
+        transparent 65%
+    );
+
+    top:-200px;
+    left:-150px;
+
+    filter:blur(30px);
+}
 
 
-<div class="card">
-<span>RANGE</span>
-<strong>~500 KM</strong>
-</div>
+.info::after{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,0,210,.18),
+        transparent 65%
+    );
+
+    bottom:-220px;
+    right:-150px;
+
+    filter:blur(30px);
+}
 
 
-</div>
+.info-content{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+}
 
 
-<a href="#" class="three-d">
-3D
-</a>
+.info h2{
+    font-size:
+    clamp(50px,9vw,110px);
+
+    letter-spacing:8px;
+
+    margin:10px 0 20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        white,
+        #75eaff,
+        #ff83e5,
+        white
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
 
 
-</section>
+.info .description{
+    max-width:700px;
 
+    color:#c4c5cf;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:50px;
+}
+
+
+.info .card{
+    background:
+    rgba(255,255,255,.07);
+
+    border:
+    1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+    inset 0 0 20px rgba(255,255,255,.025),
+    0 10px 40px rgba(0,0,0,.25);
+
+    backdrop-filter:blur(20px);
+}
+
+
+.info .card:hover{
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    border-color:#00d9ff;
+
+    box-shadow:
+    0 0 30px rgba(0,210,255,.25),
+    0 0 40px rgba(255,0,210,.12);
+}
+
+
+.info .three-d{
+    margin-top:65px;
+
+    padding:
+    19px 65px;
+
+    font-size:16px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #006eff,
+        #ff00d4
+    );
+
+    box-shadow:
+    0 0 25px rgba(0,120,255,.45),
+    0 0 45px rgba(255,0,210,.30);
+}
 
 <footer>
 
