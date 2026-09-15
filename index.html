@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>M POPAL TECH | Rolls-Royce</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -14,281 +22,955 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#030308;
     color:white;
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-/* TOP LOGO */
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#030308;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        #00d9ff,
+        #ff00d4
+    );
+    border-radius:20px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:75px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(15px);
+    background:rgba(2,2,8,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
 
     z-index:1000;
 }
 
 .logo{
-    font-size:20px;
+
+    font-size:19px;
+
     letter-spacing:7px;
+
     font-weight:bold;
 
+    color:white;
+
     text-shadow:
-    0 0 10px #00d9ff,
-    0 0 25px #ff00d4;
+
+    0 0 8px #00d9ff,
+
+    0 0 20px #ff00d4,
+
+    0 0 40px rgba(0,217,255,.5);
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
+
     min-height:100vh;
 
+    padding:
+    110px 20px 60px;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
 
     text-align:center;
 
-    padding:100px 20px 50px;
-
-    background:
-    radial-gradient(circle at 15% 50%,
-    rgba(0,200,255,.18),
-    transparent 35%),
-
-    radial-gradient(circle at 85% 50%,
-    rgba(255,0,200,.16),
-    transparent 35%),
-
-    #030308;
-}
-
-.hero-content{
-    width:100%;
-    max-width:1200px;
-}
-
-.small-title{
-    color:#aaa;
-    letter-spacing:8px;
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:clamp(45px,9vw,110px);
-    letter-spacing:8px;
-
-    background:
-    linear-gradient(
-    90deg,
-    white,
-    #8eeaff,
-    #ff8de8,
-    white
-    );
-
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.subtitle{
-    margin-top:20px;
-    color:#aaa;
-    letter-spacing:4px;
-}
-
-
-/* CAR IMAGE */
-
-.car-box{
-    margin:50px auto 0;
-
-    width:100%;
-    max-width:1100px;
-    height:500px;
-
-    border-radius:35px;
+    position:relative;
 
     overflow:hidden;
 
     background:
+
     radial-gradient(
-    circle at 50% 100%,
-    rgba(0,200,255,.25),
-    transparent 45%
+        circle at 10% 50%,
+        rgba(0,200,255,.18),
+        transparent 32%
     ),
 
-    #08080e;
+    radial-gradient(
+        circle at 90% 50%,
+        rgba(255,0,200,.16),
+        transparent 32%
+    ),
 
-    border:1px solid rgba(255,255,255,.12);
-
-    box-shadow:
-    0 0 50px rgba(0,200,255,.15),
-    0 0 80px rgba(255,0,200,.10);
+    #030308;
 }
 
-.rolls-image{
+
+/* moving light */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(0,220,255,.13),
+        transparent 70%
+    );
+
+    top:-180px;
+    left:-180px;
+
+    animation:
+    floatLight 8s ease-in-out infinite;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,0,210,.13),
+        transparent 70%
+    );
+
+    right:-180px;
+    bottom:-180px;
+
+    animation:
+    floatLight 9s ease-in-out infinite reverse;
+}
+
+@keyframes floatLight{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(40px,-30px);
+    }
+}
+
+
+.hero-content{
+
     width:100%;
+
+    max-width:1200px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+
+.small-title{
+
+    color:#aaa;
+
+    font-size:12px;
+
+    letter-spacing:8px;
+
+    margin-bottom:20px;
+}
+
+
+h1{
+
+    font-size:
+    clamp(48px,9vw,115px);
+
+    line-height:.95;
+
+    letter-spacing:8px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #8deaff,
+        #ff8de9,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+    0 0 30px rgba(0,210,255,.15);
+}
+
+
+.subtitle{
+
+    margin-top:25px;
+
+    color:#a8a8b3;
+
+    letter-spacing:4px;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   CAR FRAME
+========================= */
+
+.car-box{
+
+    width:100%;
+
+    max-width:1100px;
+
+    height:520px;
+
+    margin:
+    55px auto 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:35px;
+
+    border:
+    1px solid rgba(255,255,255,.14);
+
+    background:#07070d;
+
+    box-shadow:
+
+    0 0 45px rgba(0,200,255,.12),
+
+    0 0 90px rgba(255,0,210,.08),
+
+    inset 0 0 60px rgba(255,255,255,.025);
+}
+
+
+/* neon border */
+
+.car-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:37px;
+
+    background:
+
+    linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(0,220,255,.7),
+        transparent 45%,
+        rgba(255,0,210,.7),
+        transparent 75%
+    );
+
+    opacity:.35;
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+
+.rolls-image{
+
+    width:100%;
+
     height:100%;
 
     object-fit:cover;
 
     display:block;
+
+    position:relative;
+
+    z-index:1;
+
+    transition:
+    transform .8s ease,
+    filter .8s ease;
 }
 
 
-/* INFORMATION */
+.car-box:hover .rolls-image{
+
+    transform:scale(1.035);
+
+    filter:
+    brightness(1.05)
+    contrast(1.05);
+}
+
+
+/* image shine */
+
+.car-shine{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    background:
+
+    linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(255,255,255,.08),
+        transparent 55%
+    );
+
+    transform:
+    translateX(-100%);
+
+    animation:
+    shine 7s infinite;
+}
+
+@keyframes shine{
+
+    0%,65%{
+        transform:translateX(-100%);
+    }
+
+    80%,100%{
+        transform:translateX(100%);
+    }
+}
+
+
+/* =========================
+   INFORMATION SECTION
+========================= */
 
 .info{
+
     min-height:100vh;
 
-    padding:120px 7%;
+    position:relative;
+
+    padding:
+    130px 7%;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
 
     background:
 
     radial-gradient(
-    circle at 10% 20%,
-    rgba(0,190,255,.25),
-    transparent 30%
+        circle at 10% 20%,
+        rgba(0,210,255,.28),
+        transparent 32%
     ),
 
     radial-gradient(
-    circle at 90% 80%,
-    rgba(255,0,190,.25),
-    transparent 30%
+        circle at 90% 80%,
+        rgba(255,0,210,.25),
+        transparent 32%
     ),
 
     linear-gradient(
-    135deg,
-    #05050a,
-    #14101c,
-    #05050a
+        135deg,
+        #05050b,
+        #151020,
+        #05050b
     );
 }
 
-.section-title{
-    font-size:clamp(40px,7vw,80px);
-    margin-bottom:20px;
+
+/* wallpaper-like glow */
+
+.info::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(0,210,255,.13),
+        transparent 68%
+    );
+
+    top:-350px;
+    left:-250px;
+
+    filter:blur(20px);
 }
 
-.description{
-    max-width:750px;
+.info::after{
 
-    color:#bbb;
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,0,210,.13),
+        transparent 68%
+    );
+
+    right:-300px;
+    bottom:-350px;
+
+    filter:blur(20px);
+}
+
+
+.info-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+.info h2{
+
+    font-size:
+    clamp(48px,8vw,105px);
+
+    letter-spacing:8px;
+
+    margin:
+    10px 0 20px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        white,
+        #76eaff,
+        #ff83e5,
+        white
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+
+.description{
+
+    max-width:720px;
+
+    color:#c5c5d0;
 
     line-height:1.8;
 
     font-size:17px;
+
+    margin-bottom:55px;
 }
 
 
-/* SPEC CARDS */
+/* =========================
+   SPEC CARDS
+========================= */
 
 .specs{
+
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
+    repeat(auto-fit,minmax(170px,1fr));
 
     gap:18px;
-
-    margin-top:55px;
 }
+
 
 .card{
-    padding:28px;
 
-    border-radius:22px;
+    min-height:125px;
 
-    background:rgba(255,255,255,.06);
+    padding:27px;
 
-    border:1px solid rgba(255,255,255,.10);
+    border-radius:23px;
 
-    backdrop-filter:blur(15px);
+    background:
+    rgba(255,255,255,.065);
 
-    transition:.3s;
-}
+    border:
+    1px solid rgba(255,255,255,.12);
 
-.card:hover{
-    transform:translateY(-8px);
-
-    border-color:#00d9ff;
+    backdrop-filter:
+    blur(20px);
 
     box-shadow:
-    0 0 30px rgba(0,210,255,.20);
+
+    inset 0 0 20px
+    rgba(255,255,255,.025),
+
+    0 12px 40px
+    rgba(0,0,0,.25);
+
+    transition:
+    transform .35s ease,
+    border .35s ease,
+    box-shadow .35s ease;
 }
 
+
+.card:hover{
+
+    transform:
+    translateY(-9px)
+    scale(1.025);
+
+    border-color:
+    rgba(0,220,255,.8);
+
+    box-shadow:
+
+    0 0 30px
+    rgba(0,210,255,.22),
+
+    0 0 45px
+    rgba(255,0,210,.12);
+}
+
+
 .card span{
+
     display:block;
 
-    color:#888;
+    color:#858590;
 
-    font-size:12px;
+    font-size:11px;
 
     letter-spacing:2px;
 
-    margin-bottom:10px;
+    margin-bottom:13px;
 }
+
 
 .card strong{
-    font-size:24px;
+
+    font-size:23px;
+
+    letter-spacing:1px;
 }
 
 
-/* 3D BUTTON */
+/* =========================
+   3D BUTTON
+========================= */
 
 .three-d{
-    display:inline-block;
 
-    margin-top:70px;
+    display:inline-flex;
 
-    padding:18px 55px;
+    align-items:center;
 
-    border-radius:50px;
+    justify-content:center;
+
+    margin-top:65px;
+
+    padding:
+    18px 60px;
+
+    border-radius:60px;
+
+    text-decoration:none;
 
     color:white;
 
-    text-decoration:none;
+    font-size:15px;
 
     font-weight:bold;
 
     letter-spacing:5px;
 
     background:
+
     linear-gradient(
-    90deg,
-    #007bff,
-    #d000ff
+        90deg,
+        #006eff,
+        #9d00ff,
+        #ff00d4
     );
 
     box-shadow:
-    0 0 25px rgba(0,140,255,.40),
-    0 0 35px rgba(255,0,210,.30);
+
+    0 0 25px
+    rgba(0,130,255,.45),
+
+    0 0 45px
+    rgba(255,0,210,.25);
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+
+.three-d:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.06);
+
+    box-shadow:
+
+    0 0 35px
+    rgba(0,150,255,.65),
+
+    0 0 55px
+    rgba(255,0,210,.45);
+}
+
+
+/* =========================
+   3D VIEWER
+========================= */
+
+.viewer{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    background:
+    rgba(0,0,5,.94);
+
+    backdrop-filter:
+    blur(18px);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+}
+
+
+.viewer.active{
+
+    display:flex;
+}
+
+
+.viewer-box{
+
+    width:min(900px,95vw);
+
+    height:min(700px,85vh);
+
+    border-radius:35px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(0,210,255,.12),
+        transparent 50%
+    ),
+
+    #06060d;
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+
+    0 0 60px
+    rgba(0,210,255,.15),
+
+    0 0 80px
+    rgba(255,0,210,.12);
+
+    overflow:hidden;
+}
+
+
+/* circular stage */
+
+.viewer-stage{
+
+    width:min(650px,82vw);
+
+    height:min(650px,82vw);
+
+    max-height:75vh;
+
+    max-width:75vh;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(
+        circle,
+        #161622,
+        #05050b 70%
+    );
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+    inset 0 0 80px
+    rgba(0,0,0,.7),
+
+    0 0 35px
+    rgba(0,210,255,.12);
+}
+
+
+.viewer-stage::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8%;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(0,210,255,.15);
+
+    box-shadow:
+    0 0 35px
+    rgba(255,0,210,.08);
+}
+
+
+.viewer-image{
+
+    width:88%;
+
+    height:88%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    cursor:grab;
+
+    transition:
+    transform .12s ease;
+
+    box-shadow:
+    0 0 45px
+    rgba(0,0,0,.7);
+}
+
+
+.viewer-image:active{
+
+    cursor:grabbing;
+}
+
+
+/* viewer title */
+
+.viewer-title{
+
+    position:absolute;
+
+    top:25px;
+
+    left:30px;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    color:#aaa;
+}
+
+
+/* close */
+
+.close-viewer{
+
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    background:
+    rgba(255,255,255,.06);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
 
     transition:.3s;
 }
 
-.three-d:hover{
-    transform:scale(1.08);
+
+.close-viewer:hover{
+
+    background:#ff00c8;
+
+    transform:rotate(90deg);
 }
 
 
-/* FOOTER */
+.viewer-name{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    letter-spacing:6px;
+
+    font-size:14px;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+
     padding:35px;
 
     text-align:center;
@@ -301,32 +983,90 @@ footer{
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
+
+    header{
+        height:65px;
+    }
 
     .logo{
-        font-size:14px;
+        font-size:13px;
         letter-spacing:4px;
     }
 
+    .hero{
+        padding-top:90px;
+    }
+
     .car-box{
-        height:300px;
-        border-radius:22px;
+        height:430px;
+        border-radius:25px;
+    }
+
+    .small-title{
+        letter-spacing:5px;
     }
 
     .subtitle{
         font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .info{
+        padding:
+        100px 20px;
+    }
+
+    .specs{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .card{
+        padding:20px;
+        min-height:110px;
+    }
+
+    .card strong{
+        font-size:18px;
+    }
+
+    .three-d{
+        width:100%;
+    }
+
+}
+
+
+/* very small phones */
+
+@media(max-width:390px){
+
+    .specs{
+        grid-template-columns:1fr;
+    }
+
+    .car-box{
+        height:350px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -336,6 +1076,11 @@ M POPAL TECH
 
 </header>
 
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -362,196 +1107,184 @@ alt="Black Rolls-Royce"
 class="rolls-image"
 >
 
+<div class="car-shine"></div>
+
 </div>
 
 </div>
 
 </section>
+
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
 
 <section class="info">
-/* PREMIUM INFORMATION WALLPAPER */
 
-.info{
-    min-height:100vh;
+<div class="info-content">
 
-    position:relative;
+<div class="small-title">
+THE FUTURE OF LUXURY
+</div>
 
-    display:flex;
-    align-items:center;
+<h2>
+SPECTRE
+</h2>
 
-    padding:120px 7%;
+<p class="description">
 
-    overflow:hidden;
+A new expression of Rolls-Royce luxury.
+Explore extraordinary design, electric
+performance, advanced technology and
+hand-crafted comfort.
 
-    background:
-
-    radial-gradient(
-        circle at 15% 25%,
-        rgba(0,210,255,.45),
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at 85% 75%,
-        rgba(255,0,210,.40),
-        transparent 30%
-    ),
-
-    linear-gradient(
-        135deg,
-        #05050b,
-        #151020,
-        #05050b
-    );
-}
+</p>
 
 
-/* NEON LIGHT */
-
-.info::before{
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(0,210,255,.18),
-        transparent 65%
-    );
-
-    top:-200px;
-    left:-150px;
-
-    filter:blur(30px);
-}
+<div class="specs">
 
 
-.info::after{
-    content:"";
+<div class="card">
 
-    position:absolute;
+<span>MODEL</span>
 
-    width:500px;
-    height:500px;
+<strong>
+SPECTRE
+</strong>
 
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,0,210,.18),
-        transparent 65%
-    );
-
-    bottom:-220px;
-    right:-150px;
-
-    filter:blur(30px);
-}
+</div>
 
 
-.info-content{
-    position:relative;
+<div class="card">
 
-    z-index:2;
+<span>POWER</span>
 
-    width:100%;
-    max-width:1200px;
+<strong>
+584 HP
+</strong>
 
-    margin:auto;
-}
-
-
-.info h2{
-    font-size:
-    clamp(50px,9vw,110px);
-
-    letter-spacing:8px;
-
-    margin:10px 0 20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        white,
-        #75eaff,
-        #ff83e5,
-        white
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-}
+</div>
 
 
-.info .description{
-    max-width:700px;
+<div class="card">
 
-    color:#c4c5cf;
+<span>DRIVE</span>
 
-    font-size:18px;
+<strong>
+AWD
+</strong>
 
-    line-height:1.8;
-
-    margin-bottom:50px;
-}
+</div>
 
 
-.info .card{
-    background:
-    rgba(255,255,255,.07);
+<div class="card">
 
-    border:
-    1px solid rgba(255,255,255,.13);
+<span>TYPE</span>
 
-    box-shadow:
-    inset 0 0 20px rgba(255,255,255,.025),
-    0 10px 40px rgba(0,0,0,.25);
+<strong>
+ELECTRIC
+</strong>
 
-    backdrop-filter:blur(20px);
-}
+</div>
 
 
-.info .card:hover{
-    transform:
-    translateY(-10px)
-    scale(1.02);
+<div class="card">
 
-    border-color:#00d9ff;
+<span>RANGE</span>
 
-    box-shadow:
-    0 0 30px rgba(0,210,255,.25),
-    0 0 40px rgba(255,0,210,.12);
-}
+<strong>
+≈ 500 KM
+</strong>
+
+</div>
 
 
-.info .three-d{
-    margin-top:65px;
+<div class="card">
 
-    padding:
-    19px 65px;
+<span>TOP SPEED</span>
 
-    font-size:16px;
+<strong>
+250 KM/H
+</strong>
 
-    background:
-    linear-gradient(
-        90deg,
-        #006eff,
-        #ff00d4
-    );
+</div>
 
-    box-shadow:
-    0 0 25px rgba(0,120,255,.45),
-    0 0 45px rgba(255,0,210,.30);
-}
+
+</div>
+
+
+<a
+href="#"
+class="three-d"
+id="open3D"
+>
+3D
+</a>
+
+
+</div>
+
 </section>
+
+
+
+<!-- =========================
+     3D VIEWER
+========================= -->
+
+<div
+class="viewer"
+id="viewer"
+>
+
+<div class="viewer-box">
+
+
+<div class="viewer-title">
+M POPAL TECH • 3D EXPERIENCE
+</div>
+
+
+<button
+class="close-viewer"
+id="close3D"
+>
+×
+</button>
+
+
+<div
+class="viewer-stage"
+>
+
+<img
+src="rolls-royce.jpg"
+alt="Rolls-Royce 3D Viewer"
+class="viewer-image"
+id="viewerImage"
+>
+
+
+</div>
+
+
+<div class="viewer-name">
+ROLLS-ROYCE SPECTRE
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
 M POPAL TECH
@@ -559,5 +1292,179 @@ M POPAL TECH
 </footer>
 
 
+
+<script>
+
+/* =========================
+   3D VIEWER OPEN / CLOSE
+========================= */
+
+const open3D =
+document.getElementById("open3D");
+
+const close3D =
+document.getElementById("close3D");
+
+const viewer =
+document.getElementById("viewer");
+
+const viewerImage =
+document.getElementById("viewerImage");
+
+
+open3D.addEventListener(
+"click",
+function(event){
+
+    event.preventDefault();
+
+    viewer.classList.add("active");
+
+}
+);
+
+
+close3D.addEventListener(
+"click",
+function(){
+
+    viewer.classList.remove("active");
+
+}
+);
+
+
+viewer.addEventListener(
+"click",
+function(event){
+
+    if(event.target === viewer){
+
+        viewer.classList.remove("active");
+
+    }
+
+}
+);
+
+
+/* =========================
+   TOUCH / MOUSE INTERACTION
+========================= */
+
+let startX = 0;
+
+let currentRotate = 0;
+
+let dragging = false;
+
+
+function startDrag(x){
+
+    startX = x;
+
+    dragging = true;
+
+}
+
+
+function moveDrag(x){
+
+    if(!dragging) return;
+
+    const difference =
+    x - startX;
+
+    currentRotate =
+    difference * 0.25;
+
+    viewerImage.style.transform =
+    `perspective(900px)
+     rotateY(${currentRotate}deg)
+     scale(1.02)`;
+
+}
+
+
+function stopDrag(){
+
+    dragging = false;
+
+}
+
+
+/* TOUCH */
+
+viewerImage.addEventListener(
+"touchstart",
+function(event){
+
+    startDrag(
+        event.touches[0].clientX
+    );
+
+},
+{passive:true}
+);
+
+
+viewerImage.addEventListener(
+"touchmove",
+function(event){
+
+    moveDrag(
+        event.touches[0].clientX
+    );
+
+},
+{passive:true}
+);
+
+
+viewerImage.addEventListener(
+"touchend",
+function(){
+
+    stopDrag();
+
+}
+);
+
+
+/* MOUSE */
+
+viewerImage.addEventListener(
+"mousedown",
+function(event){
+
+    startDrag(event.clientX);
+
+}
+);
+
+
+window.addEventListener(
+"mousemove",
+function(event){
+
+    moveDrag(event.clientX);
+
+}
+);
+
+
+window.addEventListener(
+"mouseup",
+function(){
+
+    stopDrag();
+
+}
+);
+
+</script>
+
+
 </body>
+
 </html>
